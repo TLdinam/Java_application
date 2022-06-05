@@ -27,14 +27,14 @@ public class Homework_9 {
 
             for (int y = 0; y < OurMyArray.length; y++)
             {
-                MynewArray.add(OurMyArray[y]); //добавляем в пустой список очередное слово
+                MynewArray.add(OurMyArray[y]);
             }
-            Set<Character> sett = new HashSet<>();
-            sett.addAll(MynewArray);//чистим в sett список дубликатов
+            Set<Character> newset = new HashSet<>();
+            newset.addAll(MynewArray);
 
-            for (Character s : sett)
+            for (Character s : newset)
             {
-                OurArray.add(s); //добавляем в финальный список, результат чистки
+                OurArray.add(s);
             }
             System.out.println(OurArray);
 
