@@ -1,19 +1,25 @@
 public enum Planet {
+    MARS(4,445,155,"EARTH","JUPITER");
 
-    PLUTO( "Pluto",45,null,null),
-    NEPTUN( "Neptun",50,PLUTO,null),
-    MERCURY( "Mercury", 100,NEPTUN,null);
-
-
-    String name;
+    int planetNumber;
+    int distanceBetweenPreviousPlanet;
+    int distanceToTheSun;
     int radius;
-    Planet next;
-    Planet prev;
+    String prevPlanet;
+    String nextPlanet;
 
-    Planet(String name,int radius, Planet next,Planet prev){
-        this.name = name;
+    Planet(int planetNumber, int distanceBetweenPreviousPlanet, int radius, String prevPlanet, String nextPlanet) {
+        this.planetNumber = planetNumber;
+        this.distanceBetweenPreviousPlanet = distanceBetweenPreviousPlanet;
+        this.distanceToTheSun = 898;
         this.radius = radius;
-        this.next = next;
+        this.prevPlanet = prevPlanet;
+        this.nextPlanet = nextPlanet;
     }
+}
 
+class Main {
+    public static void main(String[] args) {
+        System.out.println(Planet.MARS.distanceToTheSun);
+    }
 }
