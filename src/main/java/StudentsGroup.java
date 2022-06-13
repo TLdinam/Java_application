@@ -53,13 +53,17 @@ public class StudentsGroup {
         this.captain = captain;
     }
 
-    public void changeCaptain(String name, StudentsGroup studentsGroup) {
-        List<Student> studentsList = studentsGroup.getStudentsList();
+    public void changeCaptain(String name, String lastName) {
+        List<Student> studentsList = this.getStudentsList();
 
         studentsList.stream()
                 .filter(student -> name.equals(student.getName()))
-                .findAny().ifPresent(studentsGroup::setCaptain);
+                .filter(student -> lastName.equals(student.getLastname()))
+                .findAny().ifPresent(this::setCaptain);
     }
+//    По логике этот метод должен устанавливать старосту только для своего екземпляра, тут studentsGroup входящий параметр лишний
+//
+//    Ну и для установки старосты полагаться на имя студента даже без фамилии как-то не очень надежно
 
     public void deleteStudent(String name, StudentsGroup studentsGroup) {
         List<Student> studentsList = studentsGroup.getStudentsList();
