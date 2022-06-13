@@ -3,8 +3,8 @@ public class Student {
     private String name;
     private String Lastname;
 
-    public Student(int StudentId, String name, String Lastname) {
-        this.studentId = StudentId;
+    public Student(int studentId, String name, String Lastname) {
+        this.studentId = studentId;
         this.name = name;
         this.Lastname = Lastname;
     }

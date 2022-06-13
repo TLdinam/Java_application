@@ -17,24 +17,24 @@ import java.util.List;
 //        Сделайте данный класс максимально инкапсулированным.
 //        Обеспечьте максимальную безопасность состояния класса.
 public class StudentsGroup {
-    private List<Student> StudentsList;
+    private List<Student> studentsList;
     private List<String> tasks;
     private Student captain;
 
     private static final String COMPLETED = "COMPLETED";
 
-    public StudentsGroup(Student captain, List<Student> StudentList, ArrayList<String> tasks) {
+    public StudentsGroup(Student captain, List<Student> studentList, ArrayList<String> tasks) {
         this.captain = captain;
-        this.StudentsList = StudentList;
+        this.studentsList = studentList;
         this.tasks = new ArrayList<>();
     }
 
     public List<Student> getStudentsList() {
-        return StudentsList;
+        return studentsList;
     }
 
     public void setStudentsList(List<Student> studentsList) {
-        StudentsList = studentsList;
+        this.studentsList = studentsList;
     }
 
     public List<String> getTasks() {
@@ -65,24 +65,24 @@ public class StudentsGroup {
 //
 //    Ну и для установки старосты полагаться на имя студента даже без фамилии как-то не очень надежно
 
-    public void deleteStudent(String name, StudentsGroup studentsGroup) {
-        List<Student> studentsList = studentsGroup.getStudentsList();
+    public void deleteStudent(String name) {
+        List<Student> studentsList = this.getStudentsList();
 
         studentsList.stream()
                 .filter(student -> name.equals(student.getName()))
                 .findAny().ifPresent(studentsList::remove);
     }
 
-    public void addStudent(int id, String firstName, String lastName, StudentsGroup studentsGroup) {
-        List<Student> studentsList = studentsGroup.getStudentsList();
+    public void addStudent(int id, String firstName, String lastName) {
+        List<Student> studentsList = this.getStudentsList();
 
         Student student = new Student(id, firstName, lastName);
 
         studentsList.add(student);
     }
 
-    public void renameStudent(int id, String name, StudentsGroup studentsGroup) {
-        List<Student> studentsList = studentsGroup.getStudentsList();
+    public void renameStudent(int id, String name) {
+        List<Student> studentsList = this.getStudentsList();
 
         Student studentForRename = studentsList.stream()
                 .filter(student -> id == (int) student.getStudentId())
@@ -98,14 +98,14 @@ public class StudentsGroup {
         }
     }
 
-    public void addTasks(String taskName, StudentsGroup studentsGroup) {
-        List<String> taskList = studentsGroup.getTasks();
+    public void addTasks(String taskName) {
+        List<String> taskList = this.getTasks();
         taskList.add(taskName);
     }
 
-    public void addTaskStatusForStudent(String name, String taskName, StudentsGroup studentsGroup) {
-        List<Student> studentsList = studentsGroup.getStudentsList();
-        List<String> taskList = studentsGroup.getTasks();
+    public void addTaskStatusForStudent(String name, String taskName) {
+        List<Student> studentsList = this.getStudentsList();
+        List<String> taskList = this.getTasks();
 
         String taskForUpdate = taskList.stream()
                 .filter(taskName::equals)
