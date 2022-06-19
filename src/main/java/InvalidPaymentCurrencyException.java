@@ -3,3 +3,5 @@ public class InvalidPaymentCurrencyException extends Exception {
         super(message);
     }
 }
+
+

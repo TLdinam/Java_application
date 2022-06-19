@@ -7,8 +7,11 @@ public class Operators_Homework {
         int r4 = 13;
         int r1r2 = r1 + r2;
         int r3r4 = r3 + r4;
-
+        System.out.println(r1r2);
+        System.out.println(r3r4);
         System.out.println(r1r2 > r3r4);
+
+
 
         r1r2 += 1;
         r3r4 -= 2;
