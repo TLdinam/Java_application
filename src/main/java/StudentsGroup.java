@@ -65,12 +65,13 @@ public class StudentsGroup {
 //
 //    Ну и для установки старосты полагаться на имя студента даже без фамилии как-то не очень надежно
 
-    public void deleteStudent(String name) {
+    public String deleteStudent(String name) {
         List<Student> studentsList = this.getStudentsList();
 
         studentsList.stream()
                 .filter(student -> name.equals(student.getName()))
                 .findAny().ifPresent(studentsList::remove);
+        return name;
     }
 
     public void addStudent(int id, String firstName, String lastName) {
@@ -124,4 +125,5 @@ public class StudentsGroup {
             }
         }
     }
+
 }
