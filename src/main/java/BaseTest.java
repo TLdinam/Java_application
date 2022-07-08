@@ -1,16 +1,14 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterSuite;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.testng.annotations.BeforeSuite;
-
 public class BaseTest {
-    public static final String dbAdderss = "jdbc:postgresql://localhost:4567/r_d_student";
-    public static final String dbUser = "postgres";
-    public static final String dbPassword = "mypasspostgres";
+    public static final String dbAdderss = "jdbc:postgresql://rd.cfvw8lxtimwu.eu-central-1.rds.amazonaws.com/lytovchenko";
+    public static final String dbUser = "lytovchenko";
+    public static final String dbPassword = "TarasLyt";
 
     private static final Logger log = LogManager.getLogger(BaseTest.class);
 
