@@ -28,9 +28,8 @@ public class TestShopPage {
     @Test
     public void frameTest() {
         driver.navigate().to("https://demoqa.com/frames");
-        driver.switchTo().frame();
+        driver.switchTo().frame(3);
         driver.switchTo().frame("subframe");
-        driver.ge
         driver.findElement(By.id("sampleHeading"));
 
     }
